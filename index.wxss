@@ -1,0 +1,457 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+/* 图片显示区域 */
+.image-section {
+  height: 40vh;
+  padding: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+}
+
+.display-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8rpx;
+}
+
+.placeholder-text {
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 按钮组样式 */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #fff;
+  margin: 0 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0 8rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 40rpx;
+  padding: 0;
+}
+
+.action-btn:first-child {
+  margin-left: 0;
+}
+
+.action-btn:last-child {
+  margin-right: 0;
+}
+
+.action-btn.connected {
+  background-color: #ff4d4f;
+}
+
+.action-btn[disabled] {
+  background-color: #9be6b4;
+  color: #fff;
+}
+
+/* 结果表格样式 */
+.result-section {
+  flex: 1;
+  margin: 20rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.result-table {
+  padding: 20rpx;
+}
+
+.table-row {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.table-cell.label {
+  flex: 1;
+  color: #666;
+  padding-right: 20rpx;
+}
+
+.table-cell.value {
+  flex: 2;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.connect-btn {
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  padding: 0;
+  margin: 0;
+  background: #f5f5f5;
+  color: #666;
+  border-radius: 30rpx;
+}
+
+.connect-btn.connected {
+  background: #07c160;
+  color: #fff;
+}
+
+.chat-container {
+  flex: 1;
+  padding: 20rpx;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.message.user {
+  align-self: flex-end;
+}
+
+.message-content {
+  padding: 20rpx;
+  border-radius: 20rpx;
+  word-break: break-all;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.user .message-content {
+  background: #07c160;
+  color: #fff;
+}
+
+.AI .message-content {
+  background: #fff;
+  color: #333;
+}
+
+.message-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.input-area {
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  padding: 20rpx;
+}
+
+.input-container {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.message-input {
+  width: 100%;
+  height: 80rpx;
+  background: #f5f5f5;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.image-btn {
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #f5f5f5;
+  color: #666;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.image-btn[disabled] {
+  background: #eee;
+  color: #999;
+}
+
+.send-btn {
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #07c160;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.send-btn[disabled] {
+  background: #ccc;
+}
+
+.image-preview {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.remove-image {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 32rpx;
+}
+
+.embedding-container {
+  background: #fff;
+  padding: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.embedding-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+}
+
+.embedding-label {
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.embedding-value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* 相机样式 */
+.camera {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.camera-controls {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+}
+
+.camera-btn {
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+.camera-btn:active {
+  opacity: 0.8;
+}
+
+/* 消息样式优化 */
+.message-image {
+  max-width: 240rpx;
+  border-radius: 8rpx;
+}
+
+/* 分析结果表格样式 */
+.analysis-container {
+  position: fixed;
+  bottom: 120rpx; /* 留出输入框的空间 */
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+  z-index: 100;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.analysis-header text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.close-btn {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.analysis-table {
+  padding: 20rpx;
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.table-row.header {
+  background: #f8f8f8;
+  font-weight: bold;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 15rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+}
+
+.table-row.header .table-cell {
+  color: #666;
+}
+
+/* 调整聊天区域，防止被分析结果遮挡 */
+.chat-area {
+  margin-bottom: calc(40vh + 120rpx);
+}
+
+/* 按钮组样式 */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 35rpx;
+  padding: 0;
+}
+
+.action-btn:first-child {
+  margin-left: 0;
+}
+
+.action-btn:last-child {
+  margin-right: 0;
+}
+
+.action-btn[disabled] {
+  background-color: #9be6b4;
+  color: #fff;
+}
+
+.btn-text {
+  font-size: 28rpx;
+}
+
+/* 错误提示样式 */
+.error-message {
+  padding: 40rpx;
+  text-align: center;
+  color: #ff4d4f;
+  font-size: 28rpx;
+}
+
+/* 连接按钮样式 */
+.action-btn.connected {
+  background-color: #ff4d4f;  /* 已连接状态显示红色 */
+}
+
+/* 禁用状态的按钮样式 */
+.action-btn[disabled] {
+  background-color: #9be6b4;
+  color: #fff;
+}

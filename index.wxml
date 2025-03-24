@@ -1,0 +1,100 @@
+<!-- 相机组件应该放在最外层，确保能覆盖其他内容 -->
+<camera 
+  wx:if="{{showCamera}}" 
+  class="camera" 
+  device-position="back"
+  flash="auto"
+  binderror="error"
+>
+  <view class="camera-controls">
+    <view class="camera-btn" bindtap="cancelCamera">取消</view>
+    <view class="camera-btn" bindtap="takePhoto">拍照</view>
+  </view>
+</camera>
+
+<!-- 其他内容 -->
+<view class="container">
+  <!-- 上半部分：图片显示区域 -->
+  <view class="image-section">
+    <image 
+      wx:if="{{displayImage}}" 
+      src="{{displayImage}}" 
+      mode="aspectFit" 
+      class="display-image"
+    />
+    <view wx:else class="placeholder-text">等待图片上传或拍照</view>
+  </view>
+
+  <!-- 中间：按钮组 -->
+  <view class="button-group">
+    <button class="action-btn" bindtap="openCamera" disabled="{{!isConnected}}">拍照</button>
+    <button class="action-btn" bindtap="chooseImage" disabled="{{!isConnected}}">相册</button>
+    <button class="action-btn {{isConnected ? 'connected' : ''}}" bindtap="connectAPI">
+      {{isConnected ? '断开' : '连接'}}
+    </button>
+    <button class="action-btn" bindtap="analyzeImage" disabled="{{!displayImage || !isConnected || isAnalyzing}}">分析</button>
+  </view>
+
+  <!-- 下半部分：分析结果表格 -->
+  <view class="result-section">
+    <!-- 错误提示 -->
+    <view class="error-message" wx:if="{{result.type === 'error'}}">
+      {{result.message}}
+    </view>
+
+    <!-- 正常结果显示 -->
+    <view class="result-table" wx:else>
+      <!-- 食物结果 -->
+      <block wx:if="{{result.type === 'food'}}">
+        <view class="table-row">
+          <view class="table-cell label">食物名称</view>
+          <view class="table-cell value">{{result.name || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">蛋白质含量</view>
+          <view class="table-cell value">{{result.protein || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">脂肪含量</view>
+          <view class="table-cell value">{{result.fat || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">碳水化合物</view>
+          <view class="table-cell value">{{result.carbs || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">热量</view>
+          <view class="table-cell value">{{result.calories || '--'}}</view>
+        </view>
+      </block>
+
+      <!-- 植物结果 -->
+      <block wx:if="{{result.type === 'plant'}}">
+        <view class="table-row">
+          <view class="table-cell label">植物名称</view>
+          <view class="table-cell value">{{result.name || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">特征</view>
+          <view class="table-cell value">{{result.features || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">分布地区</view>
+          <view class="table-cell value">{{result.distribution || '--'}}</view>
+        </view>
+      </block>
+
+      <!-- 动物结果 -->
+      <block wx:if="{{result.type === 'animal'}}">
+        <view class="table-row">
+          <view class="table-cell label">动物名称</view>
+          <view class="table-cell value">{{result.name || '--'}}</view>
+        </view>
+        <view class="table-row">
+          <view class="table-cell label">特征</view>
+          <view class="table-cell value">{{result.features || '--'}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
